@@ -2,10 +2,10 @@
 
 .bg-container {
   background-image: url('https://assets.ccbp.in/frontend/react-js/stopwatch-lg-bg.png');
-  height: 100vh;
   background-size: cover;
   padding-top: 50px;
   padding-left: 30px;
+  height: 150vh;
 }
 
 .heading {
@@ -77,4 +77,11 @@
   font-size: 12px;
   padding: 5px;
   width: 50px;
+}
+
+@media (max-width: 575px) {
+  .bg-container {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/stopwatch-sm-bg.png');
+    height: 100vh;
+  }
 }
