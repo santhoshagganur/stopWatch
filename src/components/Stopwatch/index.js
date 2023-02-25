@@ -3,7 +3,7 @@ import {Component} from 'react'
 import './index.css'
 
 class Stopwatch extends Component {
-  state = {seconds: 0, minutes: 0, isTimerRunning: false}
+  state = {seconds: 0, minutes: 0}
 
   tick = () => {
     this.setState(prevState => {
@@ -13,14 +13,7 @@ class Stopwatch extends Component {
   }
 
   startTimer = () => {
-    this.setState(prevState => {
-      const {isTimerRunning} = prevState
-      return {isTimerRunning: !isTimerRunning}
-    })
-    const {isTimerRunning} = this.state
-    if (isTimerRunning === true) {
-      this.timerId = setInterval(this.tick, 1000)
-    }
+    this.timerId = setInterval(this.tick, 1000)
   }
 
   renderTimer = () => {
@@ -45,14 +38,12 @@ class Stopwatch extends Component {
   }
 
   stopTimer = () => {
-    this.setState(prevState => {
-      const {isTimerRunning} = prevState
-      return {isTimerRunning: !isTimerRunning}
-    })
+    clearInterval(this.timerId)
   }
 
   resetTimer = () => {
     clearInterval(this.timerId)
+    this.setState({seconds: 0, minutes: 0})
   }
 
   render() {
